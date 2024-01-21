@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "PixelPlax"
 include(":app")
- 
+include(":core")

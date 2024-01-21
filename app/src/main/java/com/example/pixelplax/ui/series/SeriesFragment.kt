@@ -7,14 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.pixelplax.databinding.FragmentDashboardBinding
+import com.example.pixelplax.databinding.FragmentSeriesBinding
 
 class SeriesFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentSeriesBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -23,9 +20,9 @@ class SeriesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val seriesViewModel =
-            ViewModelProvider(this).get(SeriesViewModel::class.java)
+            ViewModelProvider(this)[SeriesViewModel::class.java]
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentSeriesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textDashboard
