@@ -11,4 +11,6 @@
     <string name="empty_data_illustrator">Empty Data illustrator</string>
     <string name="error_illustrator">Error Illustrator</string>
     <string name="oops_something_went_wrong">Oops.. something went wrong</string>
+    <string name="trending_series">Trending Series</string>
+    <string name="favorite">Favorite</string>
 </resources>

@@ -18,16 +18,10 @@ class MovieFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val movieViewModel =
-            ViewModelProvider(this)[MovieViewModel::class.java]
-
         _binding = FragmentMovieBinding.inflate(inflater, container, false)
 
         return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+
 }

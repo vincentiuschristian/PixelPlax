@@ -1,28 +1,25 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.PixelPlax" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.PixelPlax" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/onprimary</item>
+        <item name="colorSurface">@color/container</item>
+        <item name="colorPrimaryContainer">@color/primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/onprimaryContainer</item>
+        <item name="colorOutlineVariant">@color/outline</item>
     </style>
 
     <style name="BottomNavigationStyle">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_height">58dp</item>
         <item name="itemActiveIndicatorStyle">?attr/background</item>
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:elevation">36dp</item>
         <item name="android:layout_gravity">center</item>
         <item name="labelVisibilityMode">unlabeled</item>
         <item name="menu">@menu/bottom_nav_menu</item>
+        <item name="bottomNavigationStyle">@style/Widget.Material3.BottomNavigationView</item>
 
     </style>
 

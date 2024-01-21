@@ -39,8 +39,9 @@ android {
 dependencies {
 
     //room
-    implementation ("androidx.room:room-runtime:$2.5.2")
-    androidTestImplementation ("androidx.room:room-testing:$2.5.2")
+    implementation ("androidx.room:room-runtime:2.5.2")
+    androidTestImplementation ("androidx.room:room-testing:2.5.2")
+    kapt ("androidx.room:room-compiler:2.5.2")
 
     //retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
