@@ -12,4 +12,7 @@ data class MovieEntity(
     @PrimaryKey
     @ColumnInfo(name = "movieId")
     var movieId: String,
+
+    @ColumnInfo(name = "isFavorite")
+    var isFavorite: Boolean,
 ): Parcelable

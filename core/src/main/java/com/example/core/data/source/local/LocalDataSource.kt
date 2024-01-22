@@ -1,4 +1,20 @@
 package com.example.core.data.source.local
 
-class LocalDataSource {
+import com.example.core.data.source.local.entity.MovieEntity
+import com.example.core.data.source.local.room.MovieDao
+import kotlinx.coroutines.flow.Flow
+
+class LocalDataSource(private val movieDao: MovieDao) {
+
+    fun getAllMovie(): Flow<List<MovieEntity>> = movieDao.getAllMovie()
+
+    fun getAllSeries(): Flow<List<MovieEntity>> = movieDao.getAllSeries()
+
+    suspend fun insertTourism(movieList: List<MovieEntity>) = movieDao.insertMovie(movieList)
+
+    fun setFavorite(movie: MovieEntity, newState: Boolean){
+        movie.isFavorite = newState
+        movieDao.updateFavorite(movie)
+    }
+
 }
