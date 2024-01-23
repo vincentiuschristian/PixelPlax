@@ -5,7 +5,7 @@ plugins {
     id("kotlin-parcelize")
 }
 
-apply (from  ="../shared_dependencies.gradle")
+apply(from = "../shared_dependencies.gradle")
 
 android {
     namespace = "com.example.core"
@@ -16,6 +16,13 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+        buildConfigField("String", "API_KEY", "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZjVlZWNjZTgwOGU1ZmRmZDBlNzRiYzNiNTRiNGE5MyIsInN1YiI6IjY1YWI3Nzc2N2Q1NTA0MDEyNmQ1Mzk0MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.StNRYiAz1GkX0cvE1XUerOFlN9jLxWf61dVHe8odPYM\"")
+
+    }
+
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
     }
 
     buildTypes {
@@ -39,20 +46,20 @@ android {
 dependencies {
 
     //room
-    implementation ("androidx.room:room-runtime:2.5.2")
-    annotationProcessor ("androidx.room:room-compiler:2.5.2")
-    androidTestImplementation ("androidx.room:room-testing:2.5.2")
-    kapt ("androidx.room:room-compiler:2.5.2")
+    implementation("androidx.room:room-runtime:2.5.2")
+    annotationProcessor("androidx.room:room-compiler:2.5.2")
+    androidTestImplementation("androidx.room:room-testing:2.5.2")
+    kapt("androidx.room:room-compiler:2.5.2")
 
     //retrofit
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation ("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
     //coroutine
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-    implementation ("androidx.room:room-ktx:2.5.2")
-    api ("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("androidx.room:room-ktx:2.5.2")
+    api("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
 
 }

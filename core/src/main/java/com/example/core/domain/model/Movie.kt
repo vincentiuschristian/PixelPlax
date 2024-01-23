@@ -5,13 +5,14 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Movie(
-    val movieId: String,
+    val movieId: Int,
     val name: String,
     val overview: String,
     val voteCount: Int,
-    val voteAverage: Int,
-    val popularity: Int,
+    val voteAverage: Double,
+    val popularity: Double,
     val firstAirDate: String,
     val posterPath: String,
     val isFavorite: Boolean,
+    val isMovie: Boolean,
 ): Parcelable

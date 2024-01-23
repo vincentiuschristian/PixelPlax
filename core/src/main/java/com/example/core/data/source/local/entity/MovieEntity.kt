@@ -11,10 +11,7 @@ import kotlinx.parcelize.Parcelize
 data class MovieEntity(
     @PrimaryKey
     @ColumnInfo(name = "movieId")
-    var movieId: String,
-
-    @ColumnInfo(name = "isFavorite")
-    var isFavorite: Boolean,
+    var movieId: Int,
 
     @ColumnInfo(name = "name")
     var name: String,
@@ -26,14 +23,20 @@ data class MovieEntity(
     var voteCount: Int,
 
     @ColumnInfo(name = "voteAverage")
-    var voteAverage: Int,
+    var voteAverage: Double,
 
     @ColumnInfo(name = "popularity")
-    var popularity: String,
+    var popularity: Double,
 
     @ColumnInfo(name = "firstAirDate")
     var firstAirDate: String,
 
     @ColumnInfo(name = "posterPath")
     var posterPath: String,
+
+    @ColumnInfo(name = "isFavorite")
+    var isFavorite: Boolean,
+
+    @ColumnInfo(name = "isMovie")
+    var isMovie: Boolean,
 ): Parcelable

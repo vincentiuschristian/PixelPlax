@@ -29,10 +29,10 @@ data class ResultsItem(
 	val originalName: String,
 
 	@field:SerializedName("popularity")
-	val popularity: Any,
+	val popularity: Double,
 
 	@field:SerializedName("vote_average")
-	val voteAverage: Any,
+	val voteAverage: Double,
 
 	@field:SerializedName("name")
 	val name: String,
