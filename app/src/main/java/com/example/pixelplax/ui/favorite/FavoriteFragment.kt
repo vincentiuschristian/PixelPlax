@@ -1,5 +1,6 @@
 package com.example.pixelplax.ui.favorite
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.pixelplax.R
 import com.example.pixelplax.databinding.FragmentFavoriteBinding
+import com.example.pixelplax.ui.detail.DetailActivity
 
 class FavoriteFragment : Fragment() {
 
@@ -31,7 +33,7 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnMove.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_favorite_to_detailFragment)
+            startActivity(Intent(requireActivity(), DetailActivity::class.java))
         }
     }
 
