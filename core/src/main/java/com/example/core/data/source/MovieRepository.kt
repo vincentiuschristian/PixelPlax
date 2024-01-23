@@ -37,9 +37,7 @@ class MovieRepository(
                 localDataSource.insertMovie(movieList)
             }
 
-            override suspend fun collect(collector: FlowCollector<Resource<List<Movie>>>) {
-                TODO("Not yet implemented")
-            }
+            override suspend fun collect(collector: FlowCollector<Resource<List<Movie>>>) = Unit
 
         }.asFlow()
 
@@ -63,9 +61,7 @@ class MovieRepository(
                 localDataSource.insertMovie(movieList)
             }
 
-            override suspend fun collect(collector: FlowCollector<Resource<List<Movie>>>) {
-                TODO("Not yet implemented")
-            }
+            override suspend fun collect(collector: FlowCollector<Resource<List<Movie>>>) = Unit
 
         }.asFlow()
 
