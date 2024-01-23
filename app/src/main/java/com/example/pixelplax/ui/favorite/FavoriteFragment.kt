@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.pixelplax.R
 import com.example.pixelplax.databinding.FragmentFavoriteBinding
 
 class FavoriteFragment : Fragment() {
@@ -19,11 +21,24 @@ class FavoriteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val favoriteViewModel =
-            ViewModelProvider(this).get(FavoriteViewModel::class.java)
+            ViewModelProvider(this)[FavoriteViewModel::class.java]
 
         _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
 
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.btnMove.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_favorite_to_detailFragment)
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
 
 }

@@ -1,13 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.detail.DetailFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/primary"
+        android:contentDescription="@string/add_to_favorite"
+        android:src="@drawable/heart" />
 
-</FrameLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_poster"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/poster"
+                android:src="@color/purple_200"
+                app:layout_constraintDimensionRatio="H,2:3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/background_back_button"
+                android:contentDescription="@string/back_button"
+                android:src="@drawable/baseline_arrow_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ImageContrastCheck,RedundantDescriptionCheck" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                style="@style/TextAppearance.Material3.TitleLarge"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/example_title"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_poster" />
+
+            <TextView
+                android:id="@+id/releaseDate"
+                style="@style/TextAppearance.MaterialComponents.Body2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/release_date"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+            <View
+                android:id="@+id/view_rate"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/background_rate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/releaseDate" />
+
+            <TextView
+                android:id="@+id/tv_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_7_8"
+                android:textColor="@color/text_accent"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/view_rate"
+                app:layout_constraintEnd_toEndOf="@+id/view_rate"
+                app:layout_constraintStart_toStartOf="@id/view_rate"
+                app:layout_constraintTop_toTopOf="@+id/view_rate" />
+
+            <TextView
+                android:id="@+id/tv_voteCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="@string/vote_count_5437"
+                app:layout_constraintBottom_toBottomOf="@+id/view_rate"
+                app:layout_constraintStart_toEndOf="@+id/view_rate"
+                app:layout_constraintTop_toTopOf="@id/view_rate" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/divider"
+                android:layout_width="1dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_voteCount"
+                app:layout_constraintStart_toEndOf="@id/tv_voteCount"
+                app:layout_constraintTop_toTopOf="@id/tv_voteCount"/>
+
+            <TextView
+                android:id="@+id/tv_popularity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/popularity_401_414"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_voteCount"
+                app:layout_constraintStart_toEndOf="@id/divider"
+                app:layout_constraintTop_toTopOf="@+id/tv_voteCount" />
+
+            <TextView
+                android:id="@+id/overview"
+                style="@style/TextAppearance.Material3.ActionBar.Subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/overview"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_rate" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/overview" />
+
+            <TextView
+                android:id="@+id/tv_overview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="36dp"
+                android:paddingStart="16dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="16dp"
+                android:text="@string/dummy_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
