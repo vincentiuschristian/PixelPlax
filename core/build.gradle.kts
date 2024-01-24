@@ -9,14 +9,14 @@ apply(from = "../shared_dependencies.gradle")
 
 android {
     namespace = "com.example.core"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
-        buildConfigField("String", "API_KEY", "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZjVlZWNjZTgwOGU1ZmRmZDBlNzRiYzNiNTRiNGE5MyIsInN1YiI6IjY1YWI3Nzc2N2Q1NTA0MDEyNmQ1Mzk0MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.StNRYiAz1GkX0cvE1XUerOFlN9jLxWf61dVHe8odPYM\"")
+        buildConfigField("String", "API_KEY", "\"0f5eecce808e5fdfd0e74bc3b54b4a93\"")
 
     }
 
@@ -35,21 +35,21 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 }
 
 dependencies {
 
     //room
-    implementation("androidx.room:room-runtime:2.5.2")
-    annotationProcessor("androidx.room:room-compiler:2.5.2")
-    androidTestImplementation("androidx.room:room-testing:2.5.2")
-    kapt("androidx.room:room-compiler:2.5.2")
+    implementation ("androidx.room:room-runtime:2.5.2")
+    implementation ("androidx.room:room-ktx:2.5.2")
+    kapt ("androidx.room:room-compiler:2.5.2")
+    implementation ("androidx.room:room-testing:2.5.2")
 
     //retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -59,7 +59,6 @@ dependencies {
     //coroutine
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-    implementation("androidx.room:room-ktx:2.5.2")
     api("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
 
 }

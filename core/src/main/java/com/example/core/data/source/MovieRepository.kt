@@ -31,7 +31,6 @@ class MovieRepository(
             override suspend fun createCall(): Flow<ApiResponse<List<ResultsItem>>> =
                 remoteDataSource.getAllMovie()
 
-
             override suspend fun saveCallResult(data: List<ResultsItem>) {
                 val movieList = DataMapper.mapMovieResponsesToEntities(data)
                 localDataSource.insertMovie(movieList)

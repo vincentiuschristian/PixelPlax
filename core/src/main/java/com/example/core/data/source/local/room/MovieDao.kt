@@ -6,7 +6,6 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.example.core.data.source.local.entity.MovieEntity
-import com.example.core.domain.model.Movie
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -22,7 +21,7 @@ interface MovieDao {
     fun getFavorite(): Flow<List<MovieEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertMovie(movie: List<MovieEntity>)
+    suspend fun insertMovie(movie: List<MovieEntity>)
 
     @Update
     fun updateFavorite(movie: MovieEntity)

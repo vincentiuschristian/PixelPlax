@@ -4,7 +4,7 @@ import com.example.core.domain.model.Movie
 import com.example.core.domain.repository.IMovieRepository
 
 class MovieInteractor(private val movieRepository: IMovieRepository) : MovieUseCase {
-    override fun getAllTourism() = movieRepository.getAllMovie()
+    override fun getAllMovie() = movieRepository.getAllMovie()
 
     override fun getAllSeries() = movieRepository.getAllSeries()
     override fun getFavorite() = movieRepository.getFavorite()

@@ -1,6 +1,11 @@
 package com.example.pixelplax
 
 import android.app.Application
+import com.example.core.di.databaseModule
+import com.example.core.di.networkModule
+import com.example.core.di.repositoryModule
+import com.example.pixelplax.di.useCaseModule
+import com.example.pixelplax.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -14,7 +19,11 @@ class MyApplication: Application() {
             androidContext(this@MyApplication)
             modules(
                 listOf(
-
+                    databaseModule,
+                    networkModule,
+                    repositoryModule,
+                    useCaseModule,
+                    viewModelModule
                 )
             )
         }

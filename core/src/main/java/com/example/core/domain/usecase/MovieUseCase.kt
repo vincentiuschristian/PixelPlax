@@ -5,7 +5,7 @@ import com.example.core.domain.model.Movie
 import kotlinx.coroutines.flow.Flow
 
 interface MovieUseCase {
-    fun getAllTourism(): Flow<Resource<List<Movie>>>
+    fun getAllMovie(): Flow<Resource<List<Movie>>>
     fun getAllSeries(): Flow<Resource<List<Movie>>>
     fun getFavorite(): Flow<List<Movie>>
     fun setFavorite(movie: Movie, state: Boolean)

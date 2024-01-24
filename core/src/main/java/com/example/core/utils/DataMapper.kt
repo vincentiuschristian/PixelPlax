@@ -27,9 +27,9 @@ object DataMapper {
     }
 
     fun mapSeriesResponsesToEntities(input: List<ResultsItem>): List<MovieEntity> {
-        val movieList = ArrayList<MovieEntity>()
+        val seriesList = ArrayList<MovieEntity>()
         input.map {
-            val movie = MovieEntity(
+            val series = MovieEntity(
                 movieId = it.id,
                 name = it.originalName,
                 firstAirDate = it.firstAirDate,
@@ -41,9 +41,9 @@ object DataMapper {
                 isFavorite = false,
                 isMovie = false
             )
-            movieList.add(movie)
+            seriesList.add(series)
         }
-        return movieList
+        return seriesList
     }
 
     fun mapEntitiesToDomain(input: List<MovieEntity>): List<Movie> =
