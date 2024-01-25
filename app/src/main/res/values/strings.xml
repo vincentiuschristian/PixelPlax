@@ -7,7 +7,7 @@
     <string name="sample_of_title">Sample of title</string>
     <string name="image">Image</string>
     <string name="trending_movie">Trending Movie</string>
-    <string name="empty_data">Empty Data</string>
+    <string name="empty_data">Empty Favorite</string>
     <string name="empty_data_illustrator">Empty Data illustrator</string>
     <string name="error_illustrator">Error Illustrator</string>
     <string name="oops_something_went_wrong">Oops.. something went wrong</string>
@@ -16,12 +16,14 @@
     <string name="release_date">Release date:</string>
     <string name="back_button">Back Button</string>
     <string name="_7_8">7.8</string>
-    <string name="vote_count_5437">Vote count: 5437</string>
-    <string name="popularity_401_414">Popularity : 401.414</string>
+    <string name="vote_count_5437">Vote count: %1$s</string>
+    <string name="popularity_401_414">Popularity : %1$s</string>
     <string name="overview">Overview</string>
     <string name="dummy_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</string>
     <string name="add_to_favorite">Add to Favorite</string>
     <string name="poster">Poster</string>
-    <string name="example_title">This is Example of title</string>
     <string name="base_image_url">https://image.tmdb.org/t/p/w500%s</string>
+    <style name="total_vote">Total vote: %1$s</style>
+    <style name="popularity">Popularity: %1$s</style>
+    <string name="example_title">This is Example of title</string>
 </resources>

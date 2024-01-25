@@ -11,10 +11,10 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface MovieDao {
 
-    @Query("SELECT * FROM movie")
+    @Query("SELECT * FROM movie WHERE isMovie = 1")
     fun getAllMovie(): Flow<List<MovieEntity>>
 
-    @Query("SELECT * FROM movie")
+    @Query("SELECT * FROM movie WHERE isMovie = 0")
     fun getAllSeries(): Flow<List<MovieEntity>>
 
     @Query("SELECT * FROM movie WHERE isFavorite = 1")

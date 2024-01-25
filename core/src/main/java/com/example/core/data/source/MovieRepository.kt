@@ -3,7 +3,8 @@ package com.example.core.data.source
 import com.example.core.data.source.local.LocalDataSource
 import com.example.core.data.source.remote.RemoteDataSource
 import com.example.core.data.source.remote.network.ApiResponse
-import com.example.core.data.source.remote.response.ResultsItem
+import com.example.core.data.source.remote.response.ResultsItemMovie
+import com.example.core.data.source.remote.response.ResultsItemSeries
 import com.example.core.domain.model.Movie
 import com.example.core.domain.repository.IMovieRepository
 import com.example.core.utils.AppExecutors
@@ -18,7 +19,7 @@ class MovieRepository(
     private val appExecutors: AppExecutors
 ): IMovieRepository {
     override fun getAllMovie(): Flow<Resource<List<Movie>>> =
-        object : NetworkBoundResource<List<Movie>, List<ResultsItem>>(),
+        object : NetworkBoundResource<List<Movie>, List<ResultsItemMovie>>(),
             Flow<Resource<List<Movie>>> {
             override fun loadFromDB(): Flow<List<Movie>> {
                 return localDataSource.getAllMovie().map {
@@ -28,10 +29,10 @@ class MovieRepository(
 
             override fun shouldFetch(data: List<Movie>?): Boolean = true
 
-            override suspend fun createCall(): Flow<ApiResponse<List<ResultsItem>>> =
+            override suspend fun createCall(): Flow<ApiResponse<List<ResultsItemMovie>>> =
                 remoteDataSource.getAllMovie()
 
-            override suspend fun saveCallResult(data: List<ResultsItem>) {
+            override suspend fun saveCallResult(data: List<ResultsItemMovie>) {
                 val movieList = DataMapper.mapMovieResponsesToEntities(data)
                 localDataSource.insertMovie(movieList)
             }
@@ -41,7 +42,7 @@ class MovieRepository(
         }.asFlow()
 
     override fun getAllSeries(): Flow<Resource<List<Movie>>> =
-        object : NetworkBoundResource<List<Movie>, List<ResultsItem>>(),
+        object : NetworkBoundResource<List<Movie>, List<ResultsItemSeries>>(),
             Flow<Resource<List<Movie>>> {
             override fun loadFromDB(): Flow<List<Movie>> {
                 return localDataSource.getAllSeries().map {
@@ -51,11 +52,11 @@ class MovieRepository(
 
             override fun shouldFetch(data: List<Movie>?): Boolean = true
 
-            override suspend fun createCall(): Flow<ApiResponse<List<ResultsItem>>> =
+            override suspend fun createCall(): Flow<ApiResponse<List<ResultsItemSeries>>> =
                 remoteDataSource.getAllSeries()
 
 
-            override suspend fun saveCallResult(data: List<ResultsItem>) {
+            override suspend fun saveCallResult(data: List<ResultsItemSeries>) {
                 val movieList = DataMapper.mapSeriesResponsesToEntities(data)
                 localDataSource.insertMovie(movieList)
             }

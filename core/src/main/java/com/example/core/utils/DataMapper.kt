@@ -1,43 +1,46 @@
 package com.example.core.utils
 
+import android.util.Log
 import com.example.core.data.source.local.entity.MovieEntity
-import com.example.core.data.source.remote.response.ResultsItem
+import com.example.core.data.source.remote.response.ResultsItemMovie
+import com.example.core.data.source.remote.response.ResultsItemSeries
 import com.example.core.domain.model.Movie
 
 object DataMapper {
 
-    fun mapMovieResponsesToEntities(input: List<ResultsItem>): List<MovieEntity> {
+    fun mapMovieResponsesToEntities(input: List<ResultsItemMovie>): List<MovieEntity> {
         val movieList = ArrayList<MovieEntity>()
         input.map {
             val movie = MovieEntity(
-                movieId = it.id ?: 0,
-                name = it.originalName ?: "",
-                firstAirDate = it.firstAirDate ?: "",
-                overview = it.overview ?: "",
-                popularity = it.popularity ?: 0.0,
-                posterPath = it.posterPath ?: "",
-                voteAverage = it.voteAverage ?: 0.0,
-                voteCount = it.voteCount ?: 0,
+                movieId = it.id,
+                name = it.originalName,
+                firstAirDate = it.firstAirDate,
+                overview = it.overview,
+                popularity = it.popularity,
+                posterPath = it.posterPath,
+                voteAverage = it.voteAverage,
+                voteCount = it.voteCount,
                 isFavorite = false,
                 isMovie = true
             )
+            Log.d("DataMapper", "Mapped movie: $movie")
             movieList.add(movie)
         }
         return movieList
     }
 
-    fun mapSeriesResponsesToEntities(input: List<ResultsItem>): List<MovieEntity> {
+    fun mapSeriesResponsesToEntities(input: List<ResultsItemSeries>): List<MovieEntity> {
         val seriesList = ArrayList<MovieEntity>()
         input.map {
             val series = MovieEntity(
-                movieId = it.id ?: 0,
-                name = it.originalName ?: "",
-                firstAirDate = it.firstAirDate ?: "",
-                overview = it.overview ?: "",
-                popularity = it.popularity ?: 0.0,
-                posterPath = it.posterPath ?: "",
-                voteAverage = it.voteAverage ?: 0.0,
-                voteCount = it.voteCount ?: 0,
+                movieId = it.id,
+                name = it.originalName,
+                firstAirDate = it.firstAirDate,
+                overview = it.overview,
+                popularity = it.popularity,
+                posterPath = it.posterPath,
+                voteAverage = it.voteAverage,
+                voteCount = it.voteCount,
                 isFavorite = false,
                 isMovie = false
             )
@@ -50,7 +53,7 @@ object DataMapper {
         input.map {
             Movie(
                 movieId = it.movieId,
-                name = it.name,
+                originalName = it.name,
                 firstAirDate = it.firstAirDate,
                 overview = it.overview,
                 popularity = it.popularity,
@@ -64,7 +67,7 @@ object DataMapper {
 
     fun mapDomainToEntity(input: Movie) = MovieEntity(
         movieId = input.movieId,
-        name = input.name,
+        name = input.originalName,
         firstAirDate = input.firstAirDate,
         overview = input.overview,
         popularity = input.popularity,

@@ -45,5 +45,4 @@
         layout="@layout/view_error"
         android:visibility="gone"/>
 
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

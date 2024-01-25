@@ -9,6 +9,7 @@ import com.example.core.domain.model.Movie
 import com.example.pixelplax.R
 import com.example.pixelplax.databinding.ActivityDetailBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.Locale
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
@@ -27,12 +28,13 @@ class DetailActivity : AppCompatActivity() {
     private fun setData(data: Movie?){
         data?.let {
             binding.apply {
-                tvTitle.text = data.name
+                tvTitle.text = data.originalName
                 releaseDate.text = data.firstAirDate
                 tvOverview.text = data.overview
-                tvRating.text = data.voteAverage.toString()
-                tvVoteCount.text = data.voteCount.toString()
-                tvPopularity.text = data.popularity.toString()
+                val average = "%.1f".format(Locale.US, data.voteAverage)
+                tvRating.text = average
+                tvVoteCount.text = resources.getString(R.string.vote_count_5437, data.voteCount.toString())
+                tvPopularity.text = resources.getString(R.string.popularity_401_414, data.popularity.toString())
                 Glide.with(applicationContext)
                     .load(resources.getString(R.string.base_image_url, data.posterPath))
                     .into(ivPoster)
@@ -41,6 +43,7 @@ class DetailActivity : AppCompatActivity() {
                 setFavorite(statusFavorite)
                 fabFavorite.setOnClickListener {
                     statusFavorite = !statusFavorite
+                    viewModel.setFavorite(data, statusFavorite)
                     setFavorite(statusFavorite)
                 }
 

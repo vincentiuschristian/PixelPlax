@@ -4,7 +4,8 @@ import android.util.Log
 import com.example.core.BuildConfig
 import com.example.core.data.source.remote.network.ApiResponse
 import com.example.core.data.source.remote.network.ApiService
-import com.example.core.data.source.remote.response.ResultsItem
+import com.example.core.data.source.remote.response.ResultsItemMovie
+import com.example.core.data.source.remote.response.ResultsItemSeries
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -14,7 +15,7 @@ class RemoteDataSource(private val apiService: ApiService) {
 
     private val key = BuildConfig.API_KEY
 
-    suspend fun getAllMovie(): Flow<ApiResponse<List<ResultsItem>>> {
+    suspend fun getAllMovie(): Flow<ApiResponse<List<ResultsItemMovie>>> {
         return flow {
             try {
                 val response = apiService.getMovie(key)
@@ -27,7 +28,7 @@ class RemoteDataSource(private val apiService: ApiService) {
         }.flowOn(Dispatchers.IO)
     }
 
-    suspend fun getAllSeries(): Flow<ApiResponse<List<ResultsItem>>> {
+    suspend fun getAllSeries(): Flow<ApiResponse<List<ResultsItemSeries>>> {
         return flow {
             try {
                 val response = apiService.getSeries(key)

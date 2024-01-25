@@ -11,28 +11,28 @@ import kotlinx.parcelize.Parcelize
 data class MovieEntity(
     @PrimaryKey
     @ColumnInfo(name = "movieId")
-    var movieId: Int,
+    var movieId: Int?,
 
     @ColumnInfo(name = "name")
-    var name: String,
+    var name: String?,
 
     @ColumnInfo(name = "overview")
-    var overview: String,
+    var overview: String?,
 
     @ColumnInfo(name = "voteCount")
-    var voteCount: Int,
+    var voteCount: Int?,
 
     @ColumnInfo(name = "voteAverage")
-    var voteAverage: Double,
+    var voteAverage: Double?,
 
     @ColumnInfo(name = "popularity")
-    var popularity: Double,
+    var popularity: Double?,
 
     @ColumnInfo(name = "firstAirDate")
-    var firstAirDate: String,
+    var firstAirDate: String?,
 
     @ColumnInfo(name = "posterPath")
-    var posterPath: String,
+    var posterPath: String?,
 
     @ColumnInfo(name = "isFavorite")
     var isFavorite: Boolean,
