@@ -1,4 +1,4 @@
-package com.example.pixelplax.ui.favorite
+package com.example.favorite
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,9 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.core.ui.MovieAdapter
-import com.example.pixelplax.databinding.FragmentFavoriteBinding
+import com.example.favorite.databinding.FragmentFavoriteBinding
 import com.example.pixelplax.ui.detail.DetailActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
 
 class FavoriteFragment : Fragment() {
 
@@ -24,7 +25,7 @@ class FavoriteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
-
+        loadKoinModules(favoriteModule)
         return binding.root
     }
 
@@ -45,7 +46,7 @@ class FavoriteFragment : Fragment() {
                     if (favorite.isNotEmpty()) View.GONE else View.VISIBLE
             }
 
-            with(binding.rvFavorite){
+            with(binding.rvFavorite) {
                 layoutManager = GridLayoutManager(requireContext(), 2)
                 setHasFixedSize(true)
                 adapter = movieAdapter

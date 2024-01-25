@@ -48,6 +48,7 @@ class MovieFragment : Fragment() {
                             binding.progressBar.visibility = View.GONE
                             movieAdapter.setData(movie.data)
                         }
+
                         is Resource.Error -> {
                             binding.apply {
                                 progressBar.visibility = View.GONE
@@ -67,5 +68,4 @@ class MovieFragment : Fragment() {
         }
 
     }
-
 }

@@ -21,11 +21,11 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val detail =  getParcelableExtra(intent, EXTRA_DATA, Movie::class.java)
+        val detail = getParcelableExtra(intent, EXTRA_DATA, Movie::class.java)
         setData(detail)
     }
 
-    private fun setData(data: Movie?){
+    private fun setData(data: Movie?) {
         data?.let {
             binding.apply {
                 tvTitle.text = data.originalName
@@ -33,8 +33,10 @@ class DetailActivity : AppCompatActivity() {
                 tvOverview.text = data.overview
                 val average = "%.1f".format(Locale.US, data.voteAverage)
                 tvRating.text = average
-                tvVoteCount.text = resources.getString(R.string.vote_count_5437, data.voteCount.toString())
-                tvPopularity.text = resources.getString(R.string.popularity_401_414, data.popularity.toString())
+                tvVoteCount.text =
+                    resources.getString(R.string.vote_count_5437, data.voteCount.toString())
+                tvPopularity.text =
+                    resources.getString(R.string.popularity_401_414, data.popularity.toString())
                 Glide.with(applicationContext)
                     .load(resources.getString(R.string.base_image_url, data.posterPath))
                     .into(ivPoster)
@@ -51,8 +53,8 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun setFavorite(status: Boolean){
-        if (status){
+    private fun setFavorite(status: Boolean) {
+        if (status) {
             binding.fabFavorite.setImageDrawable(
                 ContextCompat.getDrawable(
                     this,
