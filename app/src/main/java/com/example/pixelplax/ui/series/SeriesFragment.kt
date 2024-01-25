@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.core.data.source.Resource
 import com.example.core.ui.MovieAdapter
+import com.example.pixelplax.R
 import com.example.pixelplax.databinding.FragmentSeriesBinding
 import com.example.pixelplax.ui.detail.DetailActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -25,6 +26,17 @@ class SeriesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSeriesBinding.inflate(inflater, container, false)
+
+        binding.topBar.setOnMenuItemClickListener { menu ->
+            when(menu.itemId){
+                R.id.nav_favorite -> {
+                    startActivity(Intent(requireContext(), Class.forName("com.example.favorite.FavoriteActivity")))
+                    true
+                }
+                else -> false
+            }
+        }
+
         return binding.root
     }
 

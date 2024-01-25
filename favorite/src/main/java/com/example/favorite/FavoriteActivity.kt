@@ -13,7 +13,6 @@ import org.koin.core.context.loadKoinModules
 
 class FavoriteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFavoriteBinding
-
     private val favoriteViewModel: FavoriteViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +30,9 @@ class FavoriteActivity : AppCompatActivity() {
         }
 
         favoriteViewModel.favorite.observe(this) { favorite ->
-            movieAdapter.setData(favorite)
+            if (favorite != null){
+                movieAdapter.setData(favorite)
+            }
             binding.viewEmpty.root.visibility =
                 if (favorite.isNotEmpty()) View.GONE else View.VISIBLE
         }
@@ -42,7 +43,5 @@ class FavoriteActivity : AppCompatActivity() {
             adapter = movieAdapter
         }
 
-
     }
-
 }
