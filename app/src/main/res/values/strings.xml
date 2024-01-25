@@ -13,7 +13,7 @@
     <string name="oops_something_went_wrong">Oops.. something went wrong</string>
     <string name="trending_series">Trending Series</string>
     <string name="favorite">Favorite</string>
-    <string name="release_date">Release date:</string>
+    <string name="release_date">Release date: %1$s</string>
     <string name="back_button">Back Button</string>
     <string name="_7_8">7.8</string>
     <string name="vote_count_5437">Vote count: %1$s</string>

@@ -29,7 +29,7 @@ class DetailActivity : AppCompatActivity() {
         data?.let {
             binding.apply {
                 tvTitle.text = data.originalName
-                releaseDate.text = data.firstAirDate
+                releaseDate.text = resources.getString(R.string.release_date, data.firstAirDate)
                 tvOverview.text = data.overview
                 val average = "%.1f".format(Locale.US, data.voteAverage)
                 tvRating.text = average
