@@ -10,14 +10,14 @@ object DataMapper {
         val movieList = ArrayList<MovieEntity>()
         input.map {
             val movie = MovieEntity(
-                movieId = it.id,
-                name = it.originalName,
-                firstAirDate = it.firstAirDate,
-                overview = it.overview,
-                popularity = it.popularity,
-                posterPath = it.posterPath,
-                voteAverage = it.voteAverage,
-                voteCount = it.voteCount,
+                movieId = it.id ?: 0,
+                name = it.originalName ?: "",
+                firstAirDate = it.firstAirDate ?: "",
+                overview = it.overview ?: "",
+                popularity = it.popularity ?: 0.0,
+                posterPath = it.posterPath ?: "",
+                voteAverage = it.voteAverage ?: 0.0,
+                voteCount = it.voteCount ?: 0,
                 isFavorite = false,
                 isMovie = true
             )
@@ -30,14 +30,14 @@ object DataMapper {
         val seriesList = ArrayList<MovieEntity>()
         input.map {
             val series = MovieEntity(
-                movieId = it.id,
-                name = it.originalName,
-                firstAirDate = it.firstAirDate,
-                overview = it.overview,
-                popularity = it.popularity,
-                posterPath = it.posterPath,
-                voteAverage = it.voteAverage,
-                voteCount = it.voteCount,
+                movieId = it.id ?: 0,
+                name = it.originalName ?: "",
+                firstAirDate = it.firstAirDate ?: "",
+                overview = it.overview ?: "",
+                popularity = it.popularity ?: 0.0,
+                posterPath = it.posterPath ?: "",
+                voteAverage = it.voteAverage ?: 0.0,
+                voteCount = it.voteCount ?: 0,
                 isFavorite = false,
                 isMovie = false
             )

@@ -5,44 +5,44 @@ import com.google.gson.annotations.SerializedName
 data class ResultsItem(
 
 	@field:SerializedName("first_air_date")
-	val firstAirDate: String,
+	val firstAirDate: String?,
 
 	@field:SerializedName("overview")
-	val overview: String,
+	val overview: String?,
 
 	@field:SerializedName("original_language")
-	val originalLanguage: String,
+	val originalLanguage: String?,
 
 	@field:SerializedName("genre_ids")
-	val genreIds: List<Int>,
+	val genreIds: List<Int>?,
 
 	@field:SerializedName("poster_path")
-	val posterPath: String,
+	val posterPath: String?,
 
 	@field:SerializedName("origin_country")
-	val originCountry: List<String>,
+	val originCountry: List<String>?,
 
 	@field:SerializedName("backdrop_path")
-	val backdropPath: String,
+	val backdropPath: String?,
 
 	@field:SerializedName("original_name")
-	val originalName: String,
+	val originalName: String?,
 
 	@field:SerializedName("popularity")
-	val popularity: Double,
+	val popularity: Double?,
 
 	@field:SerializedName("vote_average")
-	val voteAverage: Double,
+	val voteAverage: Double?,
 
 	@field:SerializedName("name")
-	val name: String,
+	val name: String?,
 
 	@field:SerializedName("id")
-	val id: Int,
+	val id: Int?,
 
 	@field:SerializedName("adult")
-	val adult: Boolean,
+	val adult: Boolean?,
 
 	@field:SerializedName("vote_count")
-	val voteCount: Int
+	val voteCount: Int?
 )

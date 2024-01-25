@@ -25,5 +25,6 @@
     <string name="add_to_favorite">Add to Favorite</string>
     <string name="poster">Poster</string>
     <string name="example_title">This is Example of title</string>
+    <string name="base_image_url">http://image.tmdb.org/t/p/w500%s</string>
 
 </resources>

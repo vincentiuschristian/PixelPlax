@@ -32,11 +32,7 @@ class RemoteDataSource(private val apiService: ApiService) {
             try {
                 val response = apiService.getSeries(key)
                 val dataArray = response.results
-                if (dataArray != null){
-                    emit(ApiResponse.Success(dataArray))
-                }else {
-                    emit(ApiResponse.Empty)
-                }
+                emit(ApiResponse.Success(dataArray))
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
                 Log.e("RemoteDataSource", e.toString())

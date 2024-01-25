@@ -39,13 +39,13 @@ class SeriesFragment : Fragment() {
                 startActivity(intent)
             }
 
-            seriesViewModel.series.observe(viewLifecycleOwner) { movie ->
-                if (movie != null) {
-                    when (movie) {
+            seriesViewModel.series.observe(viewLifecycleOwner) { series ->
+                if (series != null) {
+                    when (series) {
                         is Resource.Loading -> binding.progressBar.visibility = View.VISIBLE
                         is Resource.Success -> {
                             binding.progressBar.visibility = View.GONE
-                            movieAdapter.setData(movie.data)
+                            movieAdapter.setData(series.data)
                         }
 
                         is Resource.Error -> {
