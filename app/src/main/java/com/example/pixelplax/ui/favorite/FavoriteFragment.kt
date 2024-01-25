@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.core.ui.MovieAdapter
 import com.example.pixelplax.databinding.FragmentFavoriteBinding
 import com.example.pixelplax.ui.detail.DetailActivity
@@ -43,6 +44,12 @@ class FavoriteFragment : Fragment() {
                 binding.viewEmpty.root.visibility =
                     if (favorite.isNotEmpty()) View.GONE else View.VISIBLE
             }
+
+            with(binding.rvFavorite){
+                layoutManager = GridLayoutManager(requireContext(), 2)
+                setHasFixedSize(true)
+                adapter = movieAdapter
+            }
         }
 
     }
@@ -51,6 +58,5 @@ class FavoriteFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
 
 }
