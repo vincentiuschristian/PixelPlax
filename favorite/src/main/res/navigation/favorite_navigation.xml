@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="com.example.favorite.FavoriteFragment"
+        android:name="com.example.favorite.FavoriteActivity"
         android:label="FavoriteFragment" />
     <fragment
         android:id="@+id/seriesFragment"

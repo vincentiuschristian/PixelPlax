@@ -25,7 +25,6 @@ class SeriesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSeriesBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 

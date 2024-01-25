@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="@string/trending_movie"
+            app:menu="@menu/menu_favorite"
             app:titleCentered="true" />
     </com.google.android.material.appbar.AppBarLayout>
 

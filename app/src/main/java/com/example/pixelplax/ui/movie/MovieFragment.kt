@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.core.data.source.Resource
 import com.example.core.ui.MovieAdapter
+import com.example.pixelplax.R
 import com.example.pixelplax.databinding.FragmentMovieBinding
 import com.example.pixelplax.ui.detail.DetailActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -25,6 +27,16 @@ class MovieFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMovieBinding.inflate(inflater, container, false)
+
+        binding.topBar.setOnMenuItemClickListener { menu ->
+            when(menu.itemId){
+                R.id.nav_favorite -> {
+                    Toast.makeText(requireContext(), "Favorite", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
+        }
 
         return binding.root
     }

@@ -11,9 +11,4 @@
         android:icon="@drawable/series_selector"
         android:title="@string/title_series" />
 
-    <item
-        android:id="@+id/navigation_favorite"
-        android:icon="@drawable/favorite_selector"
-        android:title="@string/title_favorite" />
-
 </menu>
