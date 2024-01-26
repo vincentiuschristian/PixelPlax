@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background_back">#77000000</color>
-    <color name="background_rate_color">#77000000</color>
+    <color name="background_rate_color">#2D2B2B</color>
 
     <color name="color_text_edt">#22092C</color>
     <color name="color_home">#22092C</color>
@@ -24,8 +24,6 @@
     <color name="card_color">#F5F5F5</color>
     <color name="color_icon">#808188</color>
     <color name="color_icon_2">#0B0B0C</color>
-    <color name="color_icon_active">#001C2F</color>
-    <color name="color_icoon_disable">#5F5F5F</color>
     <color name="color_hint">#83829A</color>
 
     <!--color application-->

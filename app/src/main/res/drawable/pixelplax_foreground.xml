@@ -1,0 +1,48 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="600"
+    android:viewportHeight="600">
+    <group
+        android:scaleX="0.98"
+        android:scaleY="0.98"
+        android:translateX="6"
+        android:translateY="6">
+        <path
+            android:fillColor="#F5F5F5"
+            android:pathData="M300,300m-300,0a300,300 0,1 1,600 0a300,300 0,1 1,-600 0" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M294,300m-110,0a110,110 0,1 1,220 0a110,110 0,1 1,-220 0"
+            android:strokeWidth="20"
+            android:strokeColor="#001C2F" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M254,260m-20,0a20,20 0,1 1,40 0a20,20 0,1 1,-40 0"
+            android:strokeWidth="10"
+            android:strokeColor="#001C2F" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M334,260m-20,0a20,20 0,1 1,40 0a20,20 0,1 1,-40 0"
+            android:strokeWidth="10"
+            android:strokeColor="#001C2F" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M294.5,299.5m-8.5,0a8.5,8.5 0,1 1,17 0a8.5,8.5 0,1 1,-17 0"
+            android:strokeWidth="8"
+            android:strokeColor="#83829A" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M254,340m-20,0a20,20 0,1 1,40 0a20,20 0,1 1,-40 0"
+            android:strokeWidth="10"
+            android:strokeColor="#001C2F" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M334,340m-20,0a20,20 0,1 1,40 0a20,20 0,1 1,-40 0"
+            android:strokeWidth="10"
+            android:strokeColor="#001C2F" />
+        <path
+            android:fillColor="#001C2F"
+            android:pathData="M426.46,420.3C431.98,420.32 436.48,415.86 436.5,410.34C436.52,404.82 432.06,400.32 426.54,400.3L426.46,420.3ZM280.92,419.7L426.46,420.3L426.54,400.3L281,399.7L280.92,419.7Z" />
+    </group>
+</vector>

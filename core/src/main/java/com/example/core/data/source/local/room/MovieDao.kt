@@ -20,6 +20,12 @@ interface MovieDao {
     @Query("SELECT * FROM movie WHERE isFavorite = 1")
     fun getFavorite(): Flow<List<MovieEntity>>
 
+    @Query("SELECT * FROM movie WHERE isMovie = 1 AND name LIKE '%'  || :search || '%'")
+    fun searchMovie(search: String): Flow<List<MovieEntity>>
+
+    @Query("SELECT * FROM movie WHERE isMovie = 0 AND name LIKE '%'  || :search || '%'")
+    fun searchSeries(search: String): Flow<List<MovieEntity>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovie(movie: List<MovieEntity>)
 

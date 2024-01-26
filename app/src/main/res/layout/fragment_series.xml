@@ -21,6 +21,7 @@
             app:title="@string/trending_series"
             app:menu="@menu/menu_favorite"
             app:titleCentered="true" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView

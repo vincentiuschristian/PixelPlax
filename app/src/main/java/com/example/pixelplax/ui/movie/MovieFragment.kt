@@ -3,8 +3,11 @@ package com.example.pixelplax.ui.movie
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.core.data.source.Resource
@@ -12,11 +15,15 @@ import com.example.core.ui.MovieAdapter
 import com.example.pixelplax.R
 import com.example.pixelplax.databinding.FragmentMovieBinding
 import com.example.pixelplax.ui.detail.DetailActivity
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+@OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
 class MovieFragment : Fragment() {
 
     private var _binding: FragmentMovieBinding? = null
+    private lateinit var movieAdapter: MovieAdapter
     private val binding get() = _binding!!
     private val movieViewModel: MovieViewModel by viewModel()
 
@@ -44,7 +51,7 @@ class MovieFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-            val movieAdapter = MovieAdapter()
+            movieAdapter = MovieAdapter()
             movieAdapter.onItemClick = { selectData ->
                 val intent = Intent(activity, DetailActivity::class.java)
                 intent.putExtra(DetailActivity.EXTRA_DATA, selectData)
@@ -77,6 +84,29 @@ class MovieFragment : Fragment() {
             }
 
         }
+    }
 
+    @Suppress("DEPRECATION")
+    @Deprecated("Deprecated in Java")
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_favorite, menu)
+
+        val searchItem = menu.findItem(R.id.nav_search)
+        val searchView = searchItem?.actionView as SearchView
+
+        searchView.queryHint = "Search movies..."
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // Handle search query submission
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                // Handle search query changes
+                return true
+            }
+        })
     }
 }

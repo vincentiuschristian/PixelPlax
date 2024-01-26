@@ -29,4 +29,5 @@
     <style name="popularity">Popularity: %1$s</style>
 
     <string name="example_title">This is Example of title</string>
+    <string name="search">Search</string>
 </resources>
