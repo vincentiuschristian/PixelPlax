@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.core.data.source.Resource
 import com.example.core.ui.MovieAdapter
@@ -17,6 +18,7 @@ import com.example.pixelplax.databinding.FragmentMovieBinding
 import com.example.pixelplax.ui.detail.DetailActivity
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
@@ -35,11 +37,17 @@ class MovieFragment : Fragment() {
         _binding = FragmentMovieBinding.inflate(inflater, container, false)
 
         binding.topBar.setOnMenuItemClickListener { menu ->
-            when(menu.itemId){
+            when (menu.itemId) {
                 R.id.nav_favorite -> {
-                    startActivity(Intent(requireContext(), Class.forName("com.example.favorite.FavoriteActivity")))
+                    startActivity(
+                        Intent(
+                            requireContext(),
+                            Class.forName("com.example.favorite.FavoriteActivity")
+                        )
+                    )
                     true
                 }
+
                 else -> false
             }
         }
@@ -73,16 +81,13 @@ class MovieFragment : Fragment() {
                                 viewError.root.visibility = View.VISIBLE
                             }
                         }
+
+                        else -> Unit
                     }
                 }
             }
 
-            with(binding.rvMovie) {
-                layoutManager = GridLayoutManager(requireContext(), 2)
-                setHasFixedSize(true)
-                adapter = movieAdapter
-            }
-
+            setAdapter()
         }
     }
 
@@ -104,9 +109,29 @@ class MovieFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                // Handle search query changes
+                lifecycleScope.launch {
+                    if (newText != null) {
+                        movieViewModel.queryChannelMovie.value = newText
+                    }
+                }
                 return true
             }
         })
     }
+
+    private fun setAdapter() {
+        with(binding.rvMovie) {
+            layoutManager = GridLayoutManager(requireContext(), 2)
+            setHasFixedSize(true)
+            adapter = movieAdapter
+        }
+    }
+
+//    private fun getResult() {
+//        movieViewModel.searchResult.observe(viewLifecycleOwner) { movie ->
+//            if (movie != null) {
+//                movieAdapter.setData(movie)
+//            }
+//        }
+//    }
 }
