@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">PixelPlax</string>
     <string name="title_movie">Movie</string>
-    <string name="title_series">Series</string>
+    <string name="title_tv_show">Tv Show</string>
     <string name="title_favorite">Favorite</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sample_of_title">Sample of title</string>
@@ -11,7 +11,7 @@
     <string name="empty_data_illustrator">Empty Data illustrator</string>
     <string name="error_illustrator">Error Illustrator</string>
     <string name="oops_something_went_wrong">Oops.. something went wrong</string>
-    <string name="trending_series">Trending Series</string>
+    <string name="trending_tv_show">Trending Tv Show</string>
     <string name="favorite">Favorite</string>
     <string name="release_date">Release date: %1$s</string>
     <string name="back_button">Back Button</string>
@@ -30,4 +30,17 @@
 
     <string name="example_title">This is Example of title</string>
     <string name="search">Search</string>
+    <string name="not_found">Not Found</string>
+    <string name="settings">Settings</string>
+
+    <!--Preferences-->
+    <string name="pref_dark_title">Theme</string>
+    <string name="pref_key_dark">key_dark_mode</string>
+    <string name="pref_dark_follow_system">follow_system</string>
+    <string name="pref_dark_on" translatable="false">on</string>
+    <string name="pref_dark_off" translatable="false">off</string>
+    <string name="dark_mode_auto">Automatic</string>
+    <string name="dark_mode_on">Dark mode</string>
+    <string name="dark_mode_off">Light mode</string>
+
 </resources>

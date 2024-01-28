@@ -3,31 +3,27 @@ package com.example.pixelplax.ui.movie
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.core.data.source.Resource
 import com.example.core.ui.MovieAdapter
 import com.example.pixelplax.R
 import com.example.pixelplax.databinding.FragmentMovieBinding
 import com.example.pixelplax.ui.detail.DetailActivity
+import com.example.pixelplax.ui.setting.SettingActivity
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
 class MovieFragment : Fragment() {
 
     private var _binding: FragmentMovieBinding? = null
-    private lateinit var movieAdapter: MovieAdapter
     private val binding get() = _binding!!
     private val movieViewModel: MovieViewModel by viewModel()
+    private lateinit var movieAdapter: MovieAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,6 +44,11 @@ class MovieFragment : Fragment() {
                     true
                 }
 
+                R.id.nav_settings -> {
+                    startActivity(Intent(requireContext(), SettingActivity::class.java))
+                    true
+                }
+
                 else -> false
             }
         }
@@ -57,7 +58,6 @@ class MovieFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         if (activity != null) {
             movieAdapter = MovieAdapter()
             movieAdapter.onItemClick = { selectData ->
@@ -69,9 +69,18 @@ class MovieFragment : Fragment() {
             movieViewModel.movie.observe(viewLifecycleOwner) { movie ->
                 if (movie != null) {
                     when (movie) {
-                        is Resource.Loading -> binding.progressBar.visibility = View.VISIBLE
+                        is Resource.Loading -> {
+                            binding.apply {
+                                progressBar.visibility = View.VISIBLE
+                                tvNotFound.visibility = View.GONE
+                            }
+                        }
+
                         is Resource.Success -> {
-                            binding.progressBar.visibility = View.GONE
+                            binding.apply {
+                                progressBar.visibility = View.GONE
+                                tvNotFound.visibility = View.GONE
+                            }
                             movieAdapter.setData(movie.data)
                         }
 
@@ -79,44 +88,15 @@ class MovieFragment : Fragment() {
                             binding.apply {
                                 progressBar.visibility = View.GONE
                                 viewError.root.visibility = View.VISIBLE
+                                tvNotFound.visibility = View.GONE
                             }
                         }
-
-                        else -> Unit
                     }
                 }
             }
 
             setAdapter()
         }
-    }
-
-    @Suppress("DEPRECATION")
-    @Deprecated("Deprecated in Java")
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_favorite, menu)
-
-        val searchItem = menu.findItem(R.id.nav_search)
-        val searchView = searchItem?.actionView as SearchView
-
-        searchView.queryHint = "Search movies..."
-
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                // Handle search query submission
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                lifecycleScope.launch {
-                    if (newText != null) {
-                        movieViewModel.queryChannelMovie.value = newText
-                    }
-                }
-                return true
-            }
-        })
     }
 
     private fun setAdapter() {
@@ -127,11 +107,4 @@ class MovieFragment : Fragment() {
         }
     }
 
-//    private fun getResult() {
-//        movieViewModel.searchResult.observe(viewLifecycleOwner) { movie ->
-//            if (movie != null) {
-//                movieAdapter.setData(movie)
-//            }
-//        }
-//    }
 }

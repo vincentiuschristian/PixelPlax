@@ -4,7 +4,7 @@ import com.example.core.data.source.local.LocalDataSource
 import com.example.core.data.source.remote.RemoteDataSource
 import com.example.core.data.source.remote.network.ApiResponse
 import com.example.core.data.source.remote.response.ResultsItemMovie
-import com.example.core.data.source.remote.response.ResultsItemSeries
+import com.example.core.data.source.remote.response.ResultsItemTV
 import com.example.core.domain.model.Movie
 import com.example.core.domain.repository.IMovieRepository
 import com.example.core.utils.AppExecutors
@@ -41,41 +41,29 @@ class MovieRepository(
 
         }.asFlow()
 
-    override fun getAllSeries(): Flow<Resource<List<Movie>>> =
-        object : NetworkBoundResource<List<Movie>, List<ResultsItemSeries>>(),
+    override fun getAllTvShow(): Flow<Resource<List<Movie>>> =
+        object : NetworkBoundResource<List<Movie>, List<ResultsItemTV>>(),
             Flow<Resource<List<Movie>>> {
             override fun loadFromDB(): Flow<List<Movie>> {
-                return localDataSource.getAllSeries().map {
+                return localDataSource.getAllTvShow().map {
                     DataMapper.mapEntitiesToDomain(it)
                 }
             }
 
             override fun shouldFetch(data: List<Movie>?): Boolean = true
 
-            override suspend fun createCall(): Flow<ApiResponse<List<ResultsItemSeries>>> =
-                remoteDataSource.getAllSeries()
+            override suspend fun createCall(): Flow<ApiResponse<List<ResultsItemTV>>> =
+                remoteDataSource.getAllTvShow()
 
 
-            override suspend fun saveCallResult(data: List<ResultsItemSeries>) {
-                val movieList = DataMapper.mapSeriesResponsesToEntities(data)
+            override suspend fun saveCallResult(data: List<ResultsItemTV>) {
+                val movieList = DataMapper.mapTvShowResponsesToEntities(data)
                 localDataSource.insertMovie(movieList)
             }
 
             override suspend fun collect(collector: FlowCollector<Resource<List<Movie>>>) = Unit
 
         }.asFlow()
-
-    override fun searchMovie(query: String): Flow<List<Movie>>{
-        return localDataSource.searchMovie(query).map {
-            DataMapper.mapEntitiesToDomain(it)
-        }
-    }
-
-    override fun searchSeries(query: String): Flow<List<Movie>> {
-        return localDataSource.searchSeries(query).map {
-            DataMapper.mapEntitiesToDomain(it)
-        }
-    }
 
     override fun getFavorite(): Flow<List<Movie>> {
         return localDataSource.getAllFavorite().map {

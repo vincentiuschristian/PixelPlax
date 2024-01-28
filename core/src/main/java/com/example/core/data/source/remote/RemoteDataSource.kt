@@ -5,7 +5,7 @@ import com.example.core.BuildConfig
 import com.example.core.data.source.remote.network.ApiResponse
 import com.example.core.data.source.remote.network.ApiService
 import com.example.core.data.source.remote.response.ResultsItemMovie
-import com.example.core.data.source.remote.response.ResultsItemSeries
+import com.example.core.data.source.remote.response.ResultsItemTV
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -28,10 +28,10 @@ class RemoteDataSource(private val apiService: ApiService) {
         }.flowOn(Dispatchers.IO)
     }
 
-    suspend fun getAllSeries(): Flow<ApiResponse<List<ResultsItemSeries>>> {
+    suspend fun getAllTvShow(): Flow<ApiResponse<List<ResultsItemTV>>> {
         return flow {
             try {
-                val response = apiService.getSeries(key)
+                val response = apiService.getTvShow(key)
                 val dataArray = response.results
                 emit(ApiResponse.Success(dataArray))
             } catch (e: Exception) {

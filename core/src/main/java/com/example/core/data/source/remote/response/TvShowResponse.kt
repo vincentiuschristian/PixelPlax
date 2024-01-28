@@ -2,7 +2,7 @@ package com.example.core.data.source.remote.response
 
 import com.google.gson.annotations.SerializedName
 
-data class SeriesResponse(
+data class TvShowResponse(
 
     @field:SerializedName("page")
     val page: Int,
@@ -11,13 +11,13 @@ data class SeriesResponse(
     val totalPages: Int,
 
     @field:SerializedName("results")
-    val results: List<ResultsItemSeries>,
+    val results: List<ResultsItemTV>,
 
     @field:SerializedName("total_results")
     val totalResults: Int
 )
 
-data class ResultsItemSeries(
+data class ResultsItemTV(
 
     @field:SerializedName("first_air_date")
     val firstAirDate: String?,

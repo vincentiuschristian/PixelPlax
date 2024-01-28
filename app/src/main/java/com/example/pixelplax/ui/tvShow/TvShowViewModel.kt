@@ -1,15 +1,14 @@
-package com.example.pixelplax.ui.movie
+package com.example.pixelplax.ui.tvShow
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.example.core.domain.usecase.MovieUseCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
-
 @ExperimentalCoroutinesApi
 @FlowPreview
-class MovieViewModel(movieUseCase: MovieUseCase) : ViewModel() {
+class TvShowViewModel(movieUseCase: MovieUseCase) : ViewModel() {
 
-    val movie = movieUseCase.getAllMovie().asLiveData()
+    val tvShow = movieUseCase.getAllTvShow().asLiveData()
 
 }

@@ -13,10 +13,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_series"
-        android:name="com.example.pixelplax.ui.series.SeriesFragment"
-        android:label="@string/title_series"
-        tools:layout="@layout/fragment_series" >
+        android:id="@+id/navigation_tv_show"
+        android:name="com.example.pixelplax.ui.tvShow.TvShowFragment"
+        android:label="@string/title_tv_show"
+        tools:layout="@layout/fragment_tv_show" >
     </fragment>
 
 </navigation>

@@ -1,9 +1,8 @@
 package com.example.core.utils
 
-import android.util.Log
 import com.example.core.data.source.local.entity.MovieEntity
 import com.example.core.data.source.remote.response.ResultsItemMovie
-import com.example.core.data.source.remote.response.ResultsItemSeries
+import com.example.core.data.source.remote.response.ResultsItemTV
 import com.example.core.domain.model.Movie
 
 object DataMapper {
@@ -23,16 +22,15 @@ object DataMapper {
                 isFavorite = false,
                 isMovie = true
             )
-            Log.d("DataMapper", "Mapped movie: $movie")
             movieList.add(movie)
         }
         return movieList
     }
 
-    fun mapSeriesResponsesToEntities(input: List<ResultsItemSeries>): List<MovieEntity> {
-        val seriesList = ArrayList<MovieEntity>()
+    fun mapTvShowResponsesToEntities(input: List<ResultsItemTV>): List<MovieEntity> {
+        val tvShowList = ArrayList<MovieEntity>()
         input.map {
-            val series = MovieEntity(
+            val tvShow = MovieEntity(
                 movieId = it.id,
                 name = it.originalName,
                 firstAirDate = it.firstAirDate,
@@ -44,9 +42,9 @@ object DataMapper {
                 isFavorite = false,
                 isMovie = false
             )
-            seriesList.add(series)
+            tvShowList.add(tvShow)
         }
-        return seriesList
+        return tvShowList
     }
 
     fun mapEntitiesToDomain(input: List<MovieEntity>): List<Movie> =

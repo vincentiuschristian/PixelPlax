@@ -7,9 +7,7 @@ import kotlinx.coroutines.flow.Flow
 interface IMovieRepository {
 
     fun getAllMovie(): Flow<Resource<List<Movie>>>
-    fun getAllSeries(): Flow<Resource<List<Movie>>>
-    fun searchMovie(query: String): Flow<List<Movie>>
-    fun searchSeries(query: String): Flow<List<Movie>>
+    fun getAllTvShow(): Flow<Resource<List<Movie>>>
     fun getFavorite(): Flow<List<Movie>>
     fun setFavorite(movie: Movie, state: Boolean)
 

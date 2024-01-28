@@ -7,8 +7,8 @@
         android:title="@string/title_movie" />
 
     <item
-        android:id="@+id/navigation_series"
+        android:id="@+id/navigation_tv_show"
         android:icon="@drawable/series_selector"
-        android:title="@string/title_series" />
+        android:title="@string/title_tv_show" />
 
 </menu>

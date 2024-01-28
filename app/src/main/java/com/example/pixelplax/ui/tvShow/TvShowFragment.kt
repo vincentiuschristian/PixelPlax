@@ -1,4 +1,4 @@
-package com.example.pixelplax.ui.series
+package com.example.pixelplax.ui.tvShow
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,29 +10,45 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.core.data.source.Resource
 import com.example.core.ui.MovieAdapter
 import com.example.pixelplax.R
-import com.example.pixelplax.databinding.FragmentSeriesBinding
+import com.example.pixelplax.databinding.FragmentTvShowBinding
 import com.example.pixelplax.ui.detail.DetailActivity
+import com.example.pixelplax.ui.setting.SettingActivity
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SeriesFragment : Fragment() {
+@OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
+class TvShowFragment : Fragment() {
 
-    private var _binding: FragmentSeriesBinding? = null
+    private var _binding: FragmentTvShowBinding? = null
     private val binding get() = _binding!!
-    private val seriesViewModel: SeriesViewModel by viewModel()
+    private val tvShowViewModel: TvShowViewModel by viewModel()
+    private lateinit var movieAdapter: MovieAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSeriesBinding.inflate(inflater, container, false)
+        _binding = FragmentTvShowBinding.inflate(inflater, container, false)
 
         binding.topBar.setOnMenuItemClickListener { menu ->
-            when(menu.itemId){
+            when (menu.itemId) {
                 R.id.nav_favorite -> {
-                    startActivity(Intent(requireContext(), Class.forName("com.example.favorite.FavoriteActivity")))
+                    startActivity(
+                        Intent(
+                            requireContext(),
+                            Class.forName("com.example.favorite.FavoriteActivity")
+                        )
+                    )
                     true
                 }
+
+                R.id.nav_settings -> {
+                    startActivity(Intent(requireContext(), SettingActivity::class.java))
+                    true
+                }
+
                 else -> false
             }
         }
@@ -43,20 +59,20 @@ class SeriesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
-            val movieAdapter = MovieAdapter()
+            movieAdapter = MovieAdapter()
             movieAdapter.onItemClick = { selectData ->
                 val intent = Intent(activity, DetailActivity::class.java)
                 intent.putExtra(DetailActivity.EXTRA_DATA, selectData)
                 startActivity(intent)
             }
 
-            seriesViewModel.series.observe(viewLifecycleOwner) { series ->
-                if (series != null) {
-                    when (series) {
+            tvShowViewModel.tvShow.observe(viewLifecycleOwner) { tvShow ->
+                if (tvShow != null) {
+                    when (tvShow) {
                         is Resource.Loading -> binding.progressBar.visibility = View.VISIBLE
                         is Resource.Success -> {
                             binding.progressBar.visibility = View.GONE
-                            movieAdapter.setData(series.data)
+                            movieAdapter.setData(tvShow.data)
                         }
 
                         is Resource.Error -> {
@@ -69,12 +85,16 @@ class SeriesFragment : Fragment() {
                 }
             }
 
-            with(binding.rvSeries) {
-                layoutManager = GridLayoutManager(requireContext(), 2)
-                setHasFixedSize(true)
-                adapter = movieAdapter
-            }
-
+            setAdapter()
         }
     }
+
+    private fun setAdapter() {
+        with(binding.rvTvShow) {
+            layoutManager = GridLayoutManager(requireContext(), 2)
+            setHasFixedSize(true)
+            adapter = movieAdapter
+        }
+    }
+
 }

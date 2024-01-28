@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".ui.series.SeriesFragment">
+    tools:context=".ui.tvShow.TvShowFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar_layout"
@@ -18,14 +18,14 @@
             android:id="@+id/topBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/trending_series"
+            app:title="@string/trending_tv_show"
             app:menu="@menu/menu_favorite"
             app:titleCentered="true" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_series"
+        android:id="@+id/rv_tv_show"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="8dp"
