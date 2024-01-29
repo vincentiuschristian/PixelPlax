@@ -32,15 +32,6 @@
     <string name="search">Search</string>
     <string name="not_found">Not Found</string>
     <string name="settings">Settings</string>
-
-    <!--Preferences-->
-    <string name="pref_dark_title">Theme</string>
-    <string name="pref_key_dark">key_dark_mode</string>
-    <string name="pref_dark_follow_system">follow_system</string>
-    <string name="pref_dark_on" translatable="false">on</string>
-    <string name="pref_dark_off" translatable="false">off</string>
-    <string name="dark_mode_auto">Automatic</string>
-    <string name="dark_mode_on">Dark mode</string>
-    <string name="dark_mode_off">Light mode</string>
+    <string name="type_here">Type here...</string>
 
 </resources>

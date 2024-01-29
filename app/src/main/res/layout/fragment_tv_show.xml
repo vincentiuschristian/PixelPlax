@@ -19,8 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="@string/trending_tv_show"
-            app:menu="@menu/menu_favorite"
-            app:titleCentered="true" />
+            app:menu="@menu/menu_favorite"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 

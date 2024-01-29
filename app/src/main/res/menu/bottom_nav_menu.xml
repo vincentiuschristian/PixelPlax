@@ -7,8 +7,13 @@
         android:title="@string/title_movie" />
 
     <item
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/search_selector"
+        android:title="@string/search" />
+
+    <item
         android:id="@+id/navigation_tv_show"
-        android:icon="@drawable/series_selector"
+        android:icon="@drawable/tv_show_selector"
         android:title="@string/title_tv_show" />
 
 </menu>
