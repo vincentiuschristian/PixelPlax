@@ -9,15 +9,13 @@
         android:id="@+id/navigation_movie"
         android:name="com.example.pixelplax.ui.movie.MovieFragment"
         android:label="@string/title_movie"
-        tools:layout="@layout/fragment_movie" >
-    </fragment>
+        tools:layout="@layout/fragment_movie"/>
 
     <fragment
         android:id="@+id/navigation_tv_show"
         android:name="com.example.pixelplax.ui.tvShow.TvShowFragment"
         android:label="@string/title_tv_show"
-        tools:layout="@layout/fragment_tv_show" >
-    </fragment>
+        tools:layout="@layout/fragment_tv_show"/>
     <fragment
         android:id="@+id/navigation_search"
         android:name="com.example.pixelplax.ui.search.SearchFragment"

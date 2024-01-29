@@ -8,6 +8,7 @@
         <item name="colorPrimaryContainer">@color/primaryContainer</item>
         <item name="colorOnPrimaryContainer">@color/onprimaryContainer</item>
         <item name="colorOutlineVariant">@color/outline</item>
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
     </style>
 
     <style name="BottomNavigationStyle">

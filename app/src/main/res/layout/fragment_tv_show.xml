@@ -11,15 +11,15 @@
         android:id="@+id/appbar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$Behavior"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$Behavior">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/trending_tv_show"
-            app:menu="@menu/menu_favorite"/>
+            app:menu="@menu/menu_favorite"
+            app:title="@string/trending_tv_show" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -34,16 +34,16 @@
 
     <ProgressBar
         android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:indeterminate="true"
-        android:visibility="gone"
-        style="?android:attr/progressBarStyle"
-        android:layout_gravity="center"/>
+        android:visibility="gone" />
 
     <include
         android:id="@+id/view_error"
         layout="@layout/view_error"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

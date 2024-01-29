@@ -13,9 +13,11 @@ import java.util.Locale
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MyViewHolder>() {
     private var listData = ArrayList<Movie>()
     var onItemClick: ((Movie) -> Unit)? = null
-    inner class MyViewHolder(private val binding: ItemListCardBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: Movie){
-            with(binding){
+
+    inner class MyViewHolder(private val binding: ItemListCardBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(data: Movie) {
+            with(binding) {
                 tvTitle.text = data.originalName
                 val average = "%.1f".format(Locale.US, data.voteAverage)
                 tvRating.text = average
@@ -34,19 +36,20 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MyViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-       val binding = ItemListCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemListCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-      holder.bind(listData[position])
+        holder.bind(listData[position])
     }
 
     override fun getItemCount(): Int = listData.size
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setData(data: List<Movie>?){
-        if (data == null)return
+    fun setData(data: List<Movie>?) {
+        if (data == null) return
         listData.clear()
         listData.addAll(data)
         notifyDataSetChanged()

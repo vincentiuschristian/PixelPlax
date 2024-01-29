@@ -79,7 +79,7 @@
             android:gravity="center"
             android:maxLines="3"
             android:text="@string/sample_of_title"
-            android:textColor="@android:color/white"
+            android:textColor="@color/cardview_light_background"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/iv_card"
             app:layout_constraintEnd_toEndOf="parent"

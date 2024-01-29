@@ -4,6 +4,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryContainer">@color/primaryContainer</item>
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
     </style>
 
     <style name="BottomNavigationStyle">

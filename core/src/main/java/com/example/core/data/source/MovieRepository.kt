@@ -17,7 +17,7 @@ class MovieRepository(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource,
     private val appExecutors: AppExecutors
-): IMovieRepository {
+) : IMovieRepository {
     override fun getAllMovie(): Flow<Resource<List<Movie>>> =
         object : NetworkBoundResource<List<Movie>, List<ResultsItemMovie>>(),
             Flow<Resource<List<Movie>>> {
@@ -78,7 +78,7 @@ class MovieRepository(
     }
 
     override fun setFavorite(movie: Movie, state: Boolean) {
-       val movieEntity = DataMapper.mapDomainToEntity(movie)
+        val movieEntity = DataMapper.mapDomainToEntity(movie)
         appExecutors.diskIO().execute { localDataSource.setFavorite(movieEntity, state) }
     }
 }

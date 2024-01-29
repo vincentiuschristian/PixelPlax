@@ -56,7 +56,8 @@ class SearchFragment : Fragment() {
                     if (newText != null) {
                         searchViewModel.queryChannel.value = newText
                     }
-                    binding.rvSearch.visibility = if (newText.isNullOrEmpty()) View.GONE else View.VISIBLE
+                    binding.rvSearch.visibility =
+                        if (newText.isNullOrEmpty()) View.GONE else View.VISIBLE
                 }
                 return true
             }

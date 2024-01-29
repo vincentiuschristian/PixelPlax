@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="app_name">PixelPlax</string>
     <string name="title_movie">Movie</string>
     <string name="title_series">Series</string>
     <string name="title_favorite">Favorite</string>
@@ -28,5 +26,4 @@
     <style name="total_vote">Total vote: %1$s</style>
     <style name="popularity">Popularity: %1$s</style>
     <string name="base_image_url">http://image.tmdb.org/t/p/w500%s</string>
-
 </resources>

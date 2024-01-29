@@ -39,4 +39,4 @@ data class MovieEntity(
 
     @ColumnInfo(name = "isMovie")
     var isMovie: Boolean,
-): Parcelable
+) : Parcelable

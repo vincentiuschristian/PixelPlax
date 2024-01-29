@@ -25,20 +25,8 @@ data class ResultsItemMovie(
     @field:SerializedName("overview")
     val overview: String?,
 
-    @field:SerializedName("original_language")
-    val originalLanguage: String?,
-
-    @field:SerializedName("genre_ids")
-    val genreIds: List<Int>?,
-
     @field:SerializedName("poster_path")
     val posterPath: String?,
-
-    @field:SerializedName("origin_country")
-    val originCountry: List<String>?,
-
-    @field:SerializedName("backdrop_path")
-    val backdropPath: String?,
 
     @field:SerializedName("title")
     val title: String?,
@@ -54,9 +42,6 @@ data class ResultsItemMovie(
 
     @field:SerializedName("id")
     val id: Int?,
-
-    @field:SerializedName("adult")
-    val adult: Boolean?,
 
     @field:SerializedName("vote_count")
     val voteCount: Int?

@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.mapLatest
 
 @ExperimentalCoroutinesApi
 @FlowPreview
-class SearchViewModel(movieUseCase: MovieUseCase): ViewModel() {
+class SearchViewModel(movieUseCase: MovieUseCase) : ViewModel() {
 
     val queryChannel = MutableStateFlow("")
 
