@@ -12,7 +12,6 @@ import com.example.core.ui.MovieAdapter
 import com.example.pixelplax.R
 import com.example.pixelplax.databinding.FragmentMovieBinding
 import com.example.pixelplax.ui.detail.DetailActivity
-import com.example.pixelplax.ui.setting.SettingActivity
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -41,11 +40,6 @@ class MovieFragment : Fragment() {
                             Class.forName("com.example.favorite.FavoriteActivity")
                         )
                     )
-                    true
-                }
-
-                R.id.nav_settings -> {
-                    startActivity(Intent(requireContext(), SettingActivity::class.java))
                     true
                 }
 

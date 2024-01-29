@@ -65,6 +65,12 @@ class MovieRepository(
 
         }.asFlow()
 
+    override fun search(query: String): Flow<List<Movie>> {
+        return localDataSource.getSearch(query).map {
+            DataMapper.mapEntitiesToDomain(it)
+        }
+    }
+
     override fun getFavorite(): Flow<List<Movie>> {
         return localDataSource.getAllFavorite().map {
             DataMapper.mapEntitiesToDomain(it)

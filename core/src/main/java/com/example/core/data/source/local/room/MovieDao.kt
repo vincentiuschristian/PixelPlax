@@ -17,6 +17,9 @@ interface MovieDao {
     @Query("SELECT * FROM movie WHERE isMovie = 0")
     fun getAllTvShow(): Flow<List<MovieEntity>>
 
+    @Query("SELECT * FROM movie WHERE name LIKE '%'  || :search || '%'")
+    fun search(search: String): Flow<List<MovieEntity>>
+
     @Query("SELECT * FROM movie WHERE isFavorite = 1")
     fun getFavorite(): Flow<List<MovieEntity>>
 

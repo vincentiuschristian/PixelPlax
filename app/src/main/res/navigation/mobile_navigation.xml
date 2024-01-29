@@ -19,7 +19,7 @@
         tools:layout="@layout/fragment_tv_show" >
     </fragment>
     <fragment
-        android:id="@+id/searchFragment"
+        android:id="@+id/navigation_search"
         android:name="com.example.pixelplax.ui.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />

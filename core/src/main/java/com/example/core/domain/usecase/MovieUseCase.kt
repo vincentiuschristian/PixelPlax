@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.Flow
 interface MovieUseCase {
     fun getAllMovie(): Flow<Resource<List<Movie>>>
     fun getAllTvShow(): Flow<Resource<List<Movie>>>
+    fun search(query: String): Flow<List<Movie>>
     fun getFavorite(): Flow<List<Movie>>
     fun setFavorite(movie: Movie, state: Boolean)
 
