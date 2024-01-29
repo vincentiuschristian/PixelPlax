@@ -30,8 +30,8 @@
     <color name="background">#FFFFFF</color>
     <color name="primary">#001C2F</color>
     <color name="onprimary">#F0F0F0</color>
-    <color name="primaryContainer">#83829A</color>
-    <color name="onprimaryContainer">#E6E4E6</color>
+    <color name="primaryContainer">#E2E2E2</color>
+    <color name="onprimaryContainer">#E1E1E1</color>
     <color name="container">#FFFFFF</color>
 
     <color name="outline">#BABABA</color>
