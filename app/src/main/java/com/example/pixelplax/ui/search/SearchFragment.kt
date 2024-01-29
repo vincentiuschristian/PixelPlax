@@ -55,10 +55,8 @@ class SearchFragment : Fragment() {
                 lifecycleScope.launch {
                     if (newText != null) {
                         searchViewModel.queryChannel.value = newText
-                        binding.rvSearch.visibility = View.VISIBLE
-                    } else {
-                        binding.rvSearch.visibility = View.GONE
                     }
+                    binding.rvSearch.visibility = if (newText.isNullOrEmpty()) View.GONE else View.VISIBLE
                 }
                 return true
             }
@@ -83,6 +81,7 @@ class SearchFragment : Fragment() {
                             tvNotFound.visibility = View.VISIBLE
                             rvSearch.visibility = View.GONE
                         }
+                        movieAdapter.setData(emptyList())
                     }
                 }
             }
@@ -95,5 +94,10 @@ class SearchFragment : Fragment() {
             setHasFixedSize(true)
             adapter = movieAdapter
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

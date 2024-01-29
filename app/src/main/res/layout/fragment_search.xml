@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             app:queryHint="@string/type_here"
-            app:searchIcon="@drawable/search"
+            app:searchIcon="@drawable/ic_search"
             app:closeIcon="@drawable/close"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
