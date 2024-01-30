@@ -19,7 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="300dp"
             android:adjustViewBounds="true"
-            android:background="@android:color/background_dark"
+            android:background="#2E2E2E"
             android:contentDescription="@string/image"
             app:layout_constraintDimensionRatio="H,2:3"
             app:layout_constraintEnd_toEndOf="parent"

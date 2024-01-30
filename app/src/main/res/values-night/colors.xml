@@ -7,6 +7,7 @@
     <color name="background_rate_color">#C9FF7754</color>
 
     <!-- color component -->
+    <color name="color_placeholder">#2E2E2E</color>
     <color name="card_text_color">#F5F5F5</color>
     <color name="color_icon">#696969</color>
     <color name="color_icon_2">#808188</color>

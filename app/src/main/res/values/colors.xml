@@ -10,7 +10,7 @@
     <color name="background_back">#77000000</color>
     <color name="background_rate_color">#2D2B2B</color>
 
-    <color name="color_home">#22092C</color>
+    <color name="color_placeholder">#2E2E2E</color>
     <color name="color_text">#0F0F0F</color>
     <color name="color_text2">#2D2B2B</color>
     <color name="color_sub_text">#808188</color>

@@ -39,6 +39,7 @@ class DetailActivity : AppCompatActivity() {
                     resources.getString(R.string.popularity_401_414, data.popularity.toString())
                 Glide.with(applicationContext)
                     .load(resources.getString(R.string.base_image_url, data.posterPath))
+                    .placeholder(ContextCompat.getDrawable(baseContext, R.color.color_placeholder))
                     .into(ivPoster)
 
                 var statusFavorite = data.isFavorite
