@@ -23,7 +23,10 @@
     <string name="add_to_favorite">Add to Favorite</string>
     <string name="poster">Poster</string>
     <string name="example_title">This is Example of title</string>
+
     <style name="total_vote">Total vote: %1$s</style>
+
     <style name="popularity">Popularity: %1$s</style>
+
     <string name="base_image_url">http://image.tmdb.org/t/p/w500%s</string>
 </resources>
