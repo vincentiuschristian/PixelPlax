@@ -44,7 +44,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/top_space" />
 
-
         <View
             android:id="@+id/view"
             android:layout_width="40dp"
