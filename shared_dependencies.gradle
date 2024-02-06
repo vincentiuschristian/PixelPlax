@@ -18,4 +18,7 @@ dependencies {
 
     // settings
     implementation("androidx.preference:preference-ktx:1.2.1")
+
+    // lottie
+    implementation ("com.airbnb.android:lottie:6.3.0")
 }
