@@ -15,10 +15,10 @@ dependencies {
     //koin
     implementation("io.insert-koin:koin-core:3.0.1")
     implementation("io.insert-koin:koin-android:3.0.1")
-
-    // settings
-    implementation("androidx.preference:preference-ktx:1.2.1")
-
-    // lottie
+    
+    //lottie
     implementation ("com.airbnb.android:lottie:6.3.0")
+
+    //leak canary
+    debugImplementation ("com.squareup.leakcanary:leakcanary-android:2.10")
 }
