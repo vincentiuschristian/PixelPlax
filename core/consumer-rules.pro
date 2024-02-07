@@ -92,6 +92,8 @@ public *;
 
 -keep class com.google.gson.** { *; }
 
+-keep class androidx.lifecycle.LiveData { *; }
+
  # Keep the structure of your data classes for Gson serialization/deserialization
 -keep class com.example.core.data.source.remote.response.** { *; }
 
@@ -110,7 +112,6 @@ public *;
      <init>();
 }
 
-#-keep class androidx.lifecycle.LiveData { *; }
 
 -keep class com.example.core.data.source.remote.response.MovieResponse { <fields>; }
 -keep class com.example.core.data.source.remote.response.TvShowResponse { <fields>; }
