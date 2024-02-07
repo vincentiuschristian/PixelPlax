@@ -67,12 +67,14 @@ class MovieFragment : Fragment() {
                         is Resource.Success -> {
                             binding.progressBar.visibility = View.GONE
                             movieAdapter.setData(movie.data)
+                            print("cent ${movie.data.toString()}")
                         }
 
                         is Resource.Error -> {
                             binding.apply {
                                 progressBar.visibility = View.GONE
                                 viewError.root.visibility = View.VISIBLE
+                                viewError.tvError.text = movie.message
                             }
                         }
                     }
