@@ -112,6 +112,5 @@ public *;
      <init>();
 }
 
-
 -keep class com.example.core.data.source.remote.response.MovieResponse { <fields>; }
 -keep class com.example.core.data.source.remote.response.TvShowResponse { <fields>; }

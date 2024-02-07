@@ -25,9 +25,7 @@ class MovieFragment : Fragment() {
     private lateinit var movieAdapter: MovieAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMovieBinding.inflate(inflater, container, false)
 
@@ -36,8 +34,7 @@ class MovieFragment : Fragment() {
                 R.id.nav_favorite -> {
                     startActivity(
                         Intent(
-                            requireContext(),
-                            Class.forName("com.example.favorite.FavoriteActivity")
+                            requireContext(), Class.forName("com.example.favorite.FavoriteActivity")
                         )
                     )
                     true
@@ -63,11 +60,10 @@ class MovieFragment : Fragment() {
             movieViewModel.movie.observe(viewLifecycleOwner) { movie ->
                 if (movie != null) {
                     when (movie) {
-                        is Resource.Loading ->  binding.progressBar.visibility = View.VISIBLE
+                        is Resource.Loading -> binding.progressBar.visibility = View.VISIBLE
                         is Resource.Success -> {
                             binding.progressBar.visibility = View.GONE
                             movieAdapter.setData(movie.data)
-                            print("cent ${movie.data.toString()}")
                         }
 
                         is Resource.Error -> {
@@ -87,7 +83,7 @@ class MovieFragment : Fragment() {
 
     private fun setAdapter() {
         with(binding.rvMovie) {
-            layoutManager = GridLayoutManager(requireContext(), 2)
+            layoutManager = GridLayoutManager(requireContext().applicationContext, 2)
             setHasFixedSize(true)
             adapter = movieAdapter
         }
@@ -95,6 +91,7 @@ class MovieFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        binding.rvMovie.removeAllViews()
         _binding = null
     }
 
