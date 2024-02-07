@@ -63,26 +63,18 @@ class MovieFragment : Fragment() {
             movieViewModel.movie.observe(viewLifecycleOwner) { movie ->
                 if (movie != null) {
                     when (movie) {
-                        is Resource.Loading -> {
-                            binding.apply {
-                                progressBar.visibility = View.VISIBLE
-                                tvNotFound.visibility = View.GONE
-                            }
-                        }
-
+                        is Resource.Loading ->  binding.progressBar.visibility = View.VISIBLE
                         is Resource.Success -> {
-                            binding.apply {
-                                progressBar.visibility = View.GONE
-                                tvNotFound.visibility = View.GONE
-                            }
+                            binding.progressBar.visibility = View.GONE
                             movieAdapter.setData(movie.data)
+                            print("cent ${movie.data.toString()}")
                         }
 
                         is Resource.Error -> {
                             binding.apply {
                                 progressBar.visibility = View.GONE
                                 viewError.root.visibility = View.VISIBLE
-                                tvNotFound.visibility = View.GONE
+                                viewError.tvError.text = movie.message
                             }
                         }
                     }
