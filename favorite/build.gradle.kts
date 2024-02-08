@@ -20,8 +20,8 @@ android {
         viewBinding = true
     }
 
-    tasks.named('favorite:exportReleaseConsumerProguardFiles') {
-        dependsOn ':favorite:extractProguardFiles'
+    tasks.named("favorite:exportReleaseConsumerProguardFiles") {
+        dependsOn(":favorite:extractProguardFiles")
     }
 
     buildTypes {
