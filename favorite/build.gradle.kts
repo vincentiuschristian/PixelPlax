@@ -20,7 +20,7 @@ android {
         viewBinding = true
     }
 
-    tasks.named("exportReleaseConsumerProguardFiles"){
+    tasks.register("exportReleaseConsumerProguardFiles"){
         dependsOn(tasks.named("extractProguardFiles"))
     }
 
