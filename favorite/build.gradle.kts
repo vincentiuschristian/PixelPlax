@@ -20,6 +20,10 @@ android {
         viewBinding = true
     }
 
+    tasks.named('favorite:exportReleaseConsumerProguardFiles') {
+        dependsOn ':favorite:extractProguardFiles'
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
