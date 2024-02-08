@@ -93,7 +93,12 @@ class TvShowFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding.rvTvShow.removeAllViews()
+        binding.apply {
+            rvTvShow.removeAllViews()
+            topBar.setOnMenuItemClickListener(null)
+            rvTvShow.adapter = null
+            rvTvShow.layoutManager = null
+        }
         _binding = null
     }
 

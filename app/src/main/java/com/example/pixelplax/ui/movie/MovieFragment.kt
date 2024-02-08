@@ -91,7 +91,12 @@ class MovieFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding.rvMovie.removeAllViews()
+        binding.apply {
+            rvMovie.removeAllViews()
+            topBar.setOnMenuItemClickListener(null)
+            rvMovie.adapter = null
+            rvMovie.layoutManager = null
+        }
         _binding = null
     }
 
