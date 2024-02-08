@@ -20,6 +20,16 @@ android {
         viewBinding = true
     }
 
+    tasks.named("exportReleaseConsumerProguardFiles") {
+        dependsOn(tasks.named("extractProguardFiles"))
+    }
+    tasks.named("exportReleaseConsumerProguardFiles") {
+        dependsOn(tasks.named("extractProguardFiles"))
+    }
+    tasks.named("exportReleaseConsumerProguardFiles") {
+        mustRunAfter(tasks.named("extractProguardFiles"))
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
