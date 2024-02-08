@@ -4,9 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.core.ui.MovieAdapter
 import com.example.favorite.databinding.ActivityFavoriteBinding
+import com.example.pixelplax.R
 import com.example.pixelplax.ui.detail.DetailActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
@@ -19,6 +21,11 @@ class FavoriteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFavoriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.topBar)
+        with(supportActionBar){
+            this?.setDisplayHomeAsUpEnabled(true)
+            this?.setHomeAsUpIndicator(ContextCompat.getDrawable(applicationContext, R.drawable.arrow_back))
+        }
 
         loadKoinModules(favoriteModule)
 

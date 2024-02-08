@@ -85,7 +85,7 @@ class TvShowFragment : Fragment() {
 
     private fun setAdapter() {
         with(binding.rvTvShow) {
-            layoutManager = GridLayoutManager(requireContext(), 2)
+            layoutManager = GridLayoutManager(requireContext().applicationContext, 2)
             setHasFixedSize(true)
             adapter = movieAdapter
         }
@@ -93,6 +93,12 @@ class TvShowFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        binding.apply {
+            rvTvShow.removeAllViews()
+            topBar.setOnMenuItemClickListener(null)
+            rvTvShow.adapter = null
+            rvTvShow.layoutManager = null
+        }
         _binding = null
     }
 
