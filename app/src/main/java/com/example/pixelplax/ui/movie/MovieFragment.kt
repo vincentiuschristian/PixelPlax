@@ -70,7 +70,6 @@ class MovieFragment : Fragment() {
                             binding.apply {
                                 progressBar.visibility = View.GONE
                                 viewError.root.visibility = View.VISIBLE
-                                viewError.tvError.text = movie.message
                             }
                         }
                     }

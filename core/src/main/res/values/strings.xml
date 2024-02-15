@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="title_movie">Movie</string>
-    <string name="title_series">Series</string>
     <string name="title_favorite">Favorite</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sample_of_title">Sample of title</string>
     <string name="image">Image</string>
     <string name="trending_movie">Trending Movie</string>
     <string name="empty_data">Empty Data</string>
-    <string name="empty_data_illustrator">Empty Data illustrator</string>
     <string name="error_illustrator">Error Illustrator</string>
     <string name="oops_something_went_wrong">Oops.. something went wrong</string>
-    <string name="trending_series">Trending Series</string>
     <string name="favorite">Favorite</string>
     <string name="release_date">Release date:</string>
-    <string name="back_button">Back Button</string>
     <string name="_7_8">7.8</string>
     <string name="vote_count_5437">Vote count: 5437</string>
     <string name="popularity_401_414">Popularity : 401.414</string>
@@ -23,10 +18,6 @@
     <string name="add_to_favorite">Add to Favorite</string>
     <string name="poster">Poster</string>
     <string name="example_title">This is Example of title</string>
-
-    <style name="total_vote">Total vote: %1$s</style>
-
-    <style name="popularity">Popularity: %1$s</style>
 
     <string name="base_image_url">http://image.tmdb.org/t/p/w500%s</string>
 </resources>

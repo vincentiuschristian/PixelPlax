@@ -3,18 +3,14 @@
     <!-- color text -->
     <color name="color_text">#F2F2F2</color>
     <color name="color_text2">#EBEBEB</color>
-    <color name="color_sub_text">#808188</color>
     <color name="background_rate_color">#C9FF7754</color>
 
     <!-- color component -->
     <color name="color_placeholder">#2E2E2E</color>
-    <color name="card_text_color">#F5F5F5</color>
-    <color name="color_icon">#696969</color>
     <color name="color_icon_2">#808188</color>
     <color name="text_accent">#FEFBF6</color>
 
     <!--color application-->
-    <color name="background">#1C1B1F</color>
     <color name="primary">#FF7754</color>
     <color name="onprimary">#001C2F</color>
     <color name="primaryContainer">#3E3E3E</color>
