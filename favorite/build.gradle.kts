@@ -20,10 +20,6 @@ android {
         viewBinding = true
     }
 
-    buildTypes {
-
-    }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -34,7 +30,7 @@ android {
 }
 
 dependencies {
-    implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.8.20")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.20")
     implementation(project(":app"))
     implementation(project(":core"))
 }
