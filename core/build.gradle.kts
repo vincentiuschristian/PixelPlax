@@ -1,7 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
+    id("com.google.devtools.ksp")
     id("kotlin-parcelize")
 }
 
@@ -53,8 +53,8 @@ dependencies {
     //room
     implementation("androidx.room:room-runtime:2.5.2")
     implementation("androidx.room:room-ktx:2.5.2")
-    kapt("androidx.room:room-compiler:2.5.2")
     implementation("androidx.room:room-testing:2.5.2")
+    ksp("androidx.room:room-compiler:2.5.2")
 
     //retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
