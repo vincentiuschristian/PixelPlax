@@ -1,13 +1,14 @@
 package com.example.core.ui
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.core.R
 import com.example.core.databinding.ItemListCardBinding
 import com.example.core.domain.model.Movie
+import com.example.core.utils.MovieDiffCallback
 import java.util.Locale
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MyViewHolder>() {
@@ -47,11 +48,12 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MyViewHolder>() {
 
     override fun getItemCount(): Int = listData.size
 
-    @SuppressLint("NotifyDataSetChanged")
     fun setData(data: List<Movie>?) {
         if (data == null) return
-        listData.clear()
+        val diffCallback = MovieDiffCallback(listData, data)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+        diffResult.dispatchUpdatesTo(this)
         listData.addAll(data)
-        notifyDataSetChanged()
+        listData.clear()
     }
 }
