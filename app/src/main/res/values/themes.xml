@@ -17,7 +17,7 @@
         <item name="itemActiveIndicatorStyle">?attr/background</item>
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:elevation">36dp</item>
-        <item name="android:layout_gravity">center</item>
+        <item name="layout_insetEdge">bottom</item>
         <item name="labelVisibilityMode">labeled</item>
         <item name="menu">@menu/bottom_nav_menu</item>
 
