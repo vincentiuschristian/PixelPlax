@@ -52,8 +52,8 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MyViewHolder>() {
         if (data == null) return
         val diffCallback = MovieDiffCallback(listData, data)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
-        diffResult.dispatchUpdatesTo(this)
-        listData.addAll(data)
         listData.clear()
+        listData.addAll(data)
+        diffResult.dispatchUpdatesTo(this)
     }
 }
