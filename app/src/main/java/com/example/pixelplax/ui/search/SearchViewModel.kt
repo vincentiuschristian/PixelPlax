@@ -27,5 +27,4 @@ class SearchViewModel(movieUseCase: MovieUseCase) : ViewModel() {
             movieUseCase.search(it)
         }
         .asLiveData()
-
 }

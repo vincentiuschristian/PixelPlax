@@ -2,9 +2,9 @@ package com.example.favorite
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.core.ui.MovieAdapter
 import com.example.favorite.databinding.ActivityFavoriteBinding
@@ -40,8 +40,7 @@ class FavoriteActivity : AppCompatActivity() {
             if (favorite != null) {
                 movieAdapter.setData(favorite)
             }
-            binding.viewEmpty.root.visibility =
-                if (favorite.isNotEmpty()) View.GONE else View.VISIBLE
+            binding.viewEmpty.root.isVisible = favorite.isEmpty()
         }
 
         with(binding.rvFavorite) {

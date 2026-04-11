@@ -70,4 +70,6 @@ dependencies {
     implementation("net.zetetic:android-database-sqlcipher:4.5.3")
     implementation("androidx.sqlite:sqlite-ktx:2.4.0")
 
+    implementation("net.zetetic:android-database-sqlcipher:4.5.4")
+
 }

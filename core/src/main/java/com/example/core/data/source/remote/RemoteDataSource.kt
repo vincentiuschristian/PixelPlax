@@ -15,7 +15,7 @@ class RemoteDataSource(private val apiService: ApiService) {
 
     private val key = BuildConfig.API_KEY
 
-    suspend fun getAllMovie(): Flow<ApiResponse<List<ResultsItemMovie>>> {
+    fun getAllMovie(): Flow<ApiResponse<List<ResultsItemMovie>>> {
         return flow {
             try {
                 val response = apiService.getMovie(key)
@@ -28,7 +28,7 @@ class RemoteDataSource(private val apiService: ApiService) {
         }.flowOn(Dispatchers.IO)
     }
 
-    suspend fun getAllTvShow(): Flow<ApiResponse<List<ResultsItemTV>>> {
+    fun getAllTvShow(): Flow<ApiResponse<List<ResultsItemTV>>> {
         return flow {
             try {
                 val response = apiService.getTvShow(key)

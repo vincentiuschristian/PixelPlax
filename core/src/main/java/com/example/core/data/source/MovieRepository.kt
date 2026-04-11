@@ -7,20 +7,19 @@ import com.example.core.data.source.remote.response.ResultsItemMovie
 import com.example.core.data.source.remote.response.ResultsItemTV
 import com.example.core.domain.model.Movie
 import com.example.core.domain.repository.IMovieRepository
-import com.example.core.utils.AppExecutors
 import com.example.core.utils.DataMapper
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.withContext
 
 class MovieRepository(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource,
-    private val appExecutors: AppExecutors
 ) : IMovieRepository {
+
     override fun getAllMovie(): Flow<Resource<List<Movie>>> =
-        object : NetworkBoundResource<List<Movie>, List<ResultsItemMovie>>(),
-            Flow<Resource<List<Movie>>> {
+        object : NetworkBoundResource<List<Movie>, List<ResultsItemMovie>>() {
             override fun loadFromDB(): Flow<List<Movie>> {
                 return localDataSource.getAllMovie().map {
                     DataMapper.mapEntitiesToDomain(it)
@@ -36,32 +35,29 @@ class MovieRepository(
                 val movieList = DataMapper.mapMovieResponsesToEntities(data)
                 localDataSource.insertMovie(movieList)
             }
-
-            override suspend fun collect(collector: FlowCollector<Resource<List<Movie>>>) = Unit
-
         }.asFlow()
 
     override fun getAllTvShow(): Flow<Resource<List<Movie>>> =
-        object : NetworkBoundResource<List<Movie>, List<ResultsItemTV>>(),
-            Flow<Resource<List<Movie>>> {
+        object : NetworkBoundResource<List<Movie>, List<ResultsItemTV>>() {
+
             override fun loadFromDB(): Flow<List<Movie>> {
                 return localDataSource.getAllTvShow().map {
                     DataMapper.mapEntitiesToDomain(it)
                 }
             }
 
-            override fun shouldFetch(data: List<Movie>?): Boolean = true
-
-            override suspend fun createCall(): Flow<ApiResponse<List<ResultsItemTV>>> =
-                remoteDataSource.getAllTvShow()
-
-
-            override suspend fun saveCallResult(data: List<ResultsItemTV>) {
-                val movieList = DataMapper.mapTvShowResponsesToEntities(data)
-                localDataSource.insertMovie(movieList)
+            override fun shouldFetch(data: List<Movie>?): Boolean {
+                return data == null || data.isEmpty()
             }
 
-            override suspend fun collect(collector: FlowCollector<Resource<List<Movie>>>) = Unit
+            override suspend fun createCall(): Flow<ApiResponse<List<ResultsItemTV>>> {
+                return remoteDataSource.getAllTvShow()
+            }
+
+            override suspend fun saveCallResult(data: List<ResultsItemTV>) {
+                val tvShowList = DataMapper.mapTvShowResponsesToEntities(data)
+                localDataSource.insertMovie(tvShowList)
+            }
 
         }.asFlow()
 
@@ -77,8 +73,10 @@ class MovieRepository(
         }
     }
 
-    override fun setFavorite(movie: Movie, state: Boolean) {
-        val movieEntity = DataMapper.mapDomainToEntity(movie)
-        appExecutors.diskIO().execute { localDataSource.setFavorite(movieEntity, state) }
+    override suspend fun setFavorite(movie: Movie, state: Boolean) {
+        withContext(Dispatchers.IO) {
+            val movieEntity = DataMapper.mapDomainToEntity(movie)
+            localDataSource.setFavorite(movieEntity, state)
+        }
     }
 }
